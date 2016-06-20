@@ -67,7 +67,7 @@
 /**
  Returns the visible alpha on screen, taking into account superview and window.
  */
-@property (nonatomic, readonly) CGFloat visibleAlpha;
+@property (nonatomic, readonly) CGFloat lf_visibleAlpha;
 
 
 /**
