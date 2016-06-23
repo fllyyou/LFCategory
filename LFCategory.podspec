@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'LFCategory'
   s.summary      = 'A collection of LaiFeng’s Category.'
-  s.version      = '1.0.0'
+  s.version      = '1.0.1'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.authors      = { 'wangzhiwei' => 'wangzhiwei01@youku.com' }
   s.social_media_url = 'https://github.com/LaiFengiOS'
