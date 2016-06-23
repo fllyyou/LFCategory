@@ -17,5 +17,5 @@ s.framework = "CoreGraphics"
 
 
   s.libraries = 'z'
-s.dependency 'MBProgressHUD','~>0.9.2'
+s.dependency 'MBProgressHUD','~>0.9.1'
 end
