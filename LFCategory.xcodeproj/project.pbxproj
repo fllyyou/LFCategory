@@ -499,12 +499,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0919ADCD1CED6F920092DA5B /* Build configuration list for PBXNativeTarget "LFCategory" */;
 			buildPhases = (
-				B89CF9F4383578E350DE2C48 /* 📦 Check Pods Manifest.lock */,
+				B89CF9F4383578E350DE2C48 /* [CP] Check Pods Manifest.lock */,
 				0919ADC01CED6F920092DA5B /* Sources */,
 				0919ADC11CED6F920092DA5B /* Frameworks */,
 				0919ADC21CED6F920092DA5B /* Headers */,
 				0919ADC31CED6F920092DA5B /* Resources */,
-				9E8C8C7DA16C8A22409645C8 /* 📦 Copy Pods Resources */,
+				9E8C8C7DA16C8A22409645C8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -557,14 +557,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9E8C8C7DA16C8A22409645C8 /* 📦 Copy Pods Resources */ = {
+		9E8C8C7DA16C8A22409645C8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,14 +572,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LFCategory/Pods-LFCategory-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B89CF9F4383578E350DE2C48 /* 📦 Check Pods Manifest.lock */ = {
+		B89CF9F4383578E350DE2C48 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
