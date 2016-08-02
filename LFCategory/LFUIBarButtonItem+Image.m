@@ -14,6 +14,51 @@
 
 
 
+
++ (UIBarButtonItem *)lf_rsBarButtonItemWithTitle:(NSString *)title
+                                          target:(id)target
+                                          action:(SEL)selector {
+    static UIImage * _navigationBarBg;
+    if (!_navigationBarBg) {
+        CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 44.0f);
+        UIGraphicsBeginImageContext(rect.size);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, LFUIColorWithRGBA(0, 0, 0, 0.2f).CGColor);
+        CGContextFillRect(context, rect);
+        _navigationBarBg = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    static UIImage * _navigationBarBgHl;
+    
+    if (!_navigationBarBgHl) {
+        CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 44.0f);
+        UIGraphicsBeginImageContext(rect.size);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        CGContextSetFillColorWithColor(context, LFUIColorWithRGBA(0, 0, 0, 0.4f).CGColor);
+        CGContextFillRect(context, rect);
+        _navigationBarBgHl = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    if([UIBarButtonItem isHigherIOS7]){
+        return [UIBarButtonItem lf_rsBarButtonItemWithTitle:title
+                                                      image:nil
+                                           heightLightImage:_navigationBarBgHl
+                                               disableImage:nil
+                                                     target:target
+                                                     action:selector];
+    }else{
+        return [UIBarButtonItem lf_rsBarButtonItemWithTitle:title
+                                                      image:_navigationBarBg
+                                           heightLightImage:_navigationBarBgHl
+                                               disableImage:nil
+                                                     target:target
+                                                     action:selector];
+    }
+    
+}
+
 + (UIBarButtonItem *)lf_rsBarButtonItemWithTitle:(NSString *)title
                                            image:(UIImage *)image
                                 heightLightImage:(UIImage *)hlImage
@@ -21,10 +66,18 @@
                                           target:(id)target
                                           action:(SEL)selector {
     
+    
+    UIFont *font = nil;
+    if (title.length <= 2) {
+        font = [UIFont systemFontOfSize:15.0f];
+    } else {
+        font = [UIFont systemFontOfSize:13.0f];
+    }
     UIButton* customButton = [self lf_rsCustomBarButtonWithTitle:title
                                                            image:image
                                                 heightLightImage:hlImage
                                                     disableImage:disImage
+                                                            font:font
                                                           target:target
                                                           action:selector];
     CGSize sizeOfTitle = CGSizeZero;
@@ -75,6 +128,7 @@
                                                            image:image
                                                 heightLightImage:hlImage
                                                     disableImage:disImage
+                                                            font:font
                                                           target:target
                                                           action:selector];
     CGSize sizeOfTitle = CGSizeZero;
@@ -111,54 +165,13 @@
 
 
 
-+ (UIBarButtonItem *)lf_rsBarButtonItemWithTitle:(NSString *)title
-                                          target:(id)target
-                                          action:(SEL)selector {
-    static UIImage * _navigationBarBg;
-    if (!_navigationBarBg) {
-        CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 44.0f);
-        UIGraphicsBeginImageContext(rect.size);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextSetFillColorWithColor(context, LFUIColorWithRGBA(0, 0, 0, 0.2f).CGColor);
-        CGContextFillRect(context, rect);
-        _navigationBarBg = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-    }
-    
-    static UIImage * _navigationBarBgHl;
-    
-    if (!_navigationBarBgHl) {
-        CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 44.0f);
-        UIGraphicsBeginImageContext(rect.size);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextSetFillColorWithColor(context, LFUIColorWithRGBA(0, 0, 0, 0.4f).CGColor);
-        CGContextFillRect(context, rect);
-        _navigationBarBgHl = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-    }
-    
-    if([UIBarButtonItem isHigherIOS7]){
-        return [UIBarButtonItem lf_rsBarButtonItemWithTitle:title
-                                                      image:nil
-                                           heightLightImage:_navigationBarBgHl
-                                               disableImage:nil
-                                                     target:target
-                                                     action:selector];
-    }else{
-        return [UIBarButtonItem lf_rsBarButtonItemWithTitle:title
-                                                      image:_navigationBarBg
-                                           heightLightImage:_navigationBarBgHl
-                                               disableImage:nil
-                                                     target:target
-                                                     action:selector];
-    }
-    
-}
+
 
 + (UIButton*)lf_rsCustomBarButtonWithTitle:(NSString*)title
                                      image:(UIImage *)image
                           heightLightImage:(UIImage *)hlImage
                               disableImage:(UIImage *)disImage
+                                      font:(UIFont *)font
                                     target:(id)target
                                     action:(SEL)selector {
     
@@ -178,13 +191,8 @@
     {
         [customButton setImage:disImage forState:UIControlStateDisabled];
     }
-    if (title.length <= 2) {
-        [customButton.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
-    }
-    else
-    {
-        [customButton.titleLabel setFont:[UIFont systemFontOfSize:13.0f]];
-    }
+ 
+    [customButton.titleLabel setFont:font];
     
     [customButton.titleLabel setShadowOffset:CGSizeMake(0.0f, 0.5f)];
     if (title!=nil && ![title isEqualToString:@""]) {

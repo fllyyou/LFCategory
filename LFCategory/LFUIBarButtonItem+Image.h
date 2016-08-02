@@ -41,6 +41,7 @@
                                      image:(UIImage *)image
                           heightLightImage:(UIImage *)hlImage
                               disableImage:(UIImage *)disImage
+                                      font:(UIFont *)font
                                     target:(id)target
                                     action:(SEL)selector;
 
