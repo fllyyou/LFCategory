@@ -33,6 +33,7 @@
                                         disableImage:(UIImage *)disImage
                                                 font:(UIFont *)font
                                               offset:(CGFloat)offset//调整tite左边距
+                                            leftEdge:(CGFloat)edge//调整按钮左边距
                                               target:(id)target
                                               action:(SEL)selector;
 

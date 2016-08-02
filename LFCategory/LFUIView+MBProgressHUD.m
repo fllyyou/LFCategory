@@ -132,6 +132,26 @@
 }
 
 
+
+- (void)popupMessage:(NSString*)message offsetY:(CGFloat)offsetY animated:(BOOL)animated {
+    [self lf_removeAllHUDAnimated:animated];
+    if (message.length == 0) return;
+
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self animated:YES];
+    hud.labelText = message;
+    hud.mode = MBProgressHUDModeText;
+    hud.cornerRadius = 2.5f;
+    hud.margin = 10.f;
+    hud.xOffset = 0;
+    hud.yOffset = 0;
+    hud.removeFromSuperViewOnHide = YES;
+    hud.userInteractionEnabled = NO;
+    hud.yOffset = offsetY;
+    
+    [hud hide:animated afterDelay:2.0];
+}
+
+
 /*!
  @method
  @abstract
