@@ -14,8 +14,8 @@
 
 /*!
  	@method
- 	@abstract
- 	@discussion	显示转菊花
+ 	@abstract   显示转菊花
+ 	@discussion
  	@param 	animated
  	@result
  */
@@ -25,8 +25,8 @@
 
 /*!
  	@method
- 	@abstract
- 	@discussion	显示消息
+ 	@abstract   提示框 默认1.2秒消失
+ 	@discussion
  	@param 	animated
  	@param 	message 	消息内容
  	@result
@@ -35,7 +35,7 @@
 
 /*!
  	@method
- 	@abstract
+ 	@abstract   可以设定时间的提示框
  	@discussion
  	@param 	animated
  	@param 	message 	消息内容
@@ -65,6 +65,9 @@
  	@result
  */
 - (void)lf_removeAllHUDAnimated:(BOOL)animated;
+
+
+
 
 
 @end
