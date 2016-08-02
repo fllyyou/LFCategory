@@ -121,6 +121,7 @@
                                         disableImage:(UIImage *)disImage
                                                 font:(UIFont *)font
                                               offset:(CGFloat)offset//调整tite左边距
+                                            leftEdge:(CGFloat)edge//调整按钮左边距
                                               target:(id)target
                                               action:(SEL)selector {
     
@@ -155,7 +156,7 @@
                                           sizeOfTitle.width+32.0f,
                                           height)];
     }
-    customButton.imageEdgeInsets = UIEdgeInsetsMake(0, 14.f, 0, -14.f);
+    customButton.imageEdgeInsets = UIEdgeInsetsMake(0, edge, 0, -edge);
     customButton.titleEdgeInsets = UIEdgeInsetsMake(0, offset, 0, 0);
     customButton.titleLabel.font = font;
     UIBarButtonItem *barBtnItem  = [[UIBarButtonItem alloc] initWithCustomView:customButton];
