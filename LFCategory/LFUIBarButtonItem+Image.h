@@ -48,6 +48,22 @@
 
 
 
+// 兼容以前代码 再加回去 （不要删库方法 只添加就好了！）
+
++ (UIBarButtonItem *)lf_rsLeftBarButtonItemWithTitle:(NSString *)title
+                                               image:(UIImage *)image
+                                    heightLightImage:(UIImage *)hlImage
+                                        disableImage:(UIImage *)disImage
+                                              target:(id)target
+                                              action:(SEL)selector;
+
++ (UIButton*)lf_rsCustomBarButtonWithTitle:(NSString*)title
+                                     image:(UIImage *)image
+                          heightLightImage:(UIImage *)hlImage
+                              disableImage:(UIImage *)disImage
+                                    target:(id)target
+                                    action:(SEL)selector;
+
 
 @end
 
