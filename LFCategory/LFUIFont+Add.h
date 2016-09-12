@@ -144,5 +144,5 @@
 + (NSData *)lf_dataFromCGFont:(CGFontRef)cgFont;
 
 
-
+- (CGFloat)lf_lineHeight;
 @end

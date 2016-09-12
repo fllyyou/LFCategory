@@ -260,6 +260,16 @@ static uint32_t CalcTableCheckSum(const uint32_t *table, uint32_t numberOfBytesI
     return fontData;
 }
 
+
+- (CGFloat)lf_lineHeight {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0 //当编译版本小于iOS7时
+    // |sizeWithFont:| is deprecated in iOS 7, replaced by |sizeWithAttributes:|
+    return [@"Fake line with gjy" sizeWithFont:self].height;
+#else
+    return [@"Fake line with gjy" sizeWithAttributes:@{NSFontAttributeName:self}].height;
+#endif
+}
+
 @end
 
 #pragma clang diagnostic pop
