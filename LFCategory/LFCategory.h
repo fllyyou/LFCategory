@@ -21,6 +21,7 @@
 
 
 //Foundation
+#import "LFCALayer+Add.h"
 #import "LFALAsset+Image.h"
 #import "LFALAsset+Property.h"
 #import "LFNSArray+Add.h"
@@ -46,7 +47,6 @@
 #import "LFNSString+URLString.h"
 
 //UIKit
-#import "LFCALayer+Add.h"
 #import "LFUIAlertController+Blocks.h"
 #import "LFUIAlertView+Blocks.h"
 #import "LFUIApplication+Add.h"
@@ -67,8 +67,8 @@
 #import "LFUINavigationController+Add.h"
 #import "LFUIScrollView+Add.h"
 #import "LFUITableView+Add.h"
-#import "LFUITableViewCell+LFCellMethodExtend.m"
 #import "LFUIView+Add.h"
+#import "LFUITableViewCell+LFCellMethodExtend.m"
 #import "LFUIView+Badge.h"
 #import "LFUIView+DKAnalyses.h"
 #import "LFUIView+LFViewIsDisplaying.h"
