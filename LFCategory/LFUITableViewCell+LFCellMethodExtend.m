@@ -31,7 +31,7 @@
     if (view == nil) {
         return;
     }
-    UIView *separatorView = UIView.new;
+    UIView *separatorView = [[UIView alloc] init];
     separatorView.backgroundColor = [UIColor lightGrayColor];
     
     if (edgeNum) {
