@@ -147,17 +147,7 @@
 }
 
 + (CGSize)lf_screenSize {
-    static CGSize size;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        size = [UIScreen mainScreen].bounds.size;
-        if (size.height <= size.width) {
-            CGFloat tmp = size.height;
-            size.height = size.width;
-            size.width = tmp;
-        }
-    });
-    return size;
+    return [UIScreen mainScreen].bounds.size;
 }
 
 - (CGFloat)lf_systemVersionByFloat {

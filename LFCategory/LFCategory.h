@@ -68,7 +68,7 @@
 #import "LFUIScrollView+Add.h"
 #import "LFUITableView+Add.h"
 #import "LFUIView+Add.h"
-#import "LFUITableViewCell+LFCellMethodExtend.m"
+#import "LFUITableViewCell+LFCellMethodExtend.h"
 #import "LFUIView+Badge.h"
 #import "LFUIView+DKAnalyses.h"
 #import "LFUIView+LFViewIsDisplaying.h"
