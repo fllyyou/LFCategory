@@ -116,7 +116,7 @@
  *
  *  @return viewController Or needCls
  */
-- (nonnull id)lf_viewControllerWithNeedViewOrViewController:(nullable Class)viewControllerCls
+- (id)lf_viewControllerWithNeedViewOrViewController:(Class)viewControllerCls
 ;
 
 

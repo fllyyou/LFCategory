@@ -20,6 +20,40 @@ FOUNDATION_STATIC_INLINE BOOL NSDictionaryIsEmpty(NSDictionary *dictionary)
  */
 @interface NSDictionary (LFNSDictionaryAdditions)
 
+/**
+ Creates and returns a dictionary from a specified property list data.
+ 
+ @param plist   A property list data whose root object is a dictionary.
+ @return A new dictionary created from the binary plist data, or nil if an error occurs.
+ */
++ (NSDictionary *)lf_dictionaryWithPlistData:(NSData *)plist;
+
+/**
+ Creates and returns a dictionary from a specified property list xml string.
+ 
+ @param plist   A property list xml string whose root object is a dictionary.
+ @return A new dictionary created from the plist string, or nil if an error occurs.
+ 
+ @discussion Apple has implemented this method, but did not make it public.
+ */
++ (NSDictionary *)lf_dictionaryWithPlistString:(NSString *)plist;
+
+/**
+ Serialize the dictionary to a binary property list data.
+ 
+ @return A binary plist data, or nil if an error occurs.
+ 
+ @discussion Apple has implemented this method, but did not make it public.
+ */
+- (NSData *)lf_plistData;
+
+/**
+ Serialize the dictionary to a xml property list string.
+ 
+ @return A plist xml string, or nil if an error occurs.
+ */
+- (NSString *)lf_plistString;
+
 /// 返回所有key (按字典序排列)
 - (NSArray *)lf_allKeysSorted;
 
@@ -59,6 +93,24 @@ FOUNDATION_STATIC_INLINE BOOL NSDictionaryIsEmpty(NSDictionary *dictionary)
  Provide some some common method for `NSMutableDictionary`.
  */
 @interface NSMutableDictionary (LFNSMutableDictionaryAdditions)
+
+/**
+ Creates and returns a dictionary from a specified property list data.
+ 
+ @param plist   A property list data whose root object is a dictionary.
+ @return A new dictionary created from the binary plist data, or nil if an error occurs.
+ 
+ @discussion Apple has implemented this method, but did not make it public.
+ */
++ (NSMutableDictionary *)lf_dictionaryWithPlistData:(NSData *)plist;
+
+/**
+ Creates and returns a dictionary from a specified property list xml string.
+ 
+ @param plist   A property list xml string whose root object is a dictionary.
+ @return A new dictionary created from the plist string, or nil if an error occurs.
+ */
++ (NSMutableDictionary *)lf_dictionaryWithPlistString:(NSString *)plist;
 
 /// 移除并返回一个对象
 - (id)lf_popObjectForKey:(id)aKey;

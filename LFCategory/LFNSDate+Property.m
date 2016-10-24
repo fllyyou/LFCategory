@@ -61,7 +61,7 @@
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitYearForWeekOfYear fromDate:self] yearForWeekOfYear];
 }
 
-- (NSInteger)quarter {
+- (NSInteger)lf_quarter {
     return [[[NSCalendar currentCalendar] components:NSCalendarUnitQuarter fromDate:self] quarter];
 }
 

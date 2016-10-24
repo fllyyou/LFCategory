@@ -8,10 +8,35 @@
 
 #import "LFNSArray+Add.h"
 #import "LFCategoryMacro.h"
+#import "LFNSData+Add.h"
 
 
 
 @implementation NSArray (LFNSArrayAdditions)
+
++ (NSArray *)lf_arrayWithPlistData:(NSData *)plist {
+    if (!plist) return nil;
+    NSArray *array = [NSPropertyListSerialization propertyListWithData:plist options:NSPropertyListImmutable format:NULL error:NULL];
+    if ([array isKindOfClass:[NSArray class]]) return array;
+    return nil;
+}
+
++ (NSArray *)lf_arrayWithPlistString:(NSString *)plist {
+    if (!plist) return nil;
+    NSData *data = [plist dataUsingEncoding:NSUTF8StringEncoding];
+    return [self lf_arrayWithPlistData:data];
+}
+
+- (NSData *)lf_plistData {
+    return [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListBinaryFormat_v1_0 options:kNilOptions error:NULL];
+}
+
+- (NSString *)lf_plistString {
+    NSData *xmlData = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListXMLFormat_v1_0 options:kNilOptions error:NULL];
+    if (xmlData) return xmlData.lf_utf8String;
+    return nil;
+}
+
 
 - (id)lf_randomObject {
     if (self.count) {

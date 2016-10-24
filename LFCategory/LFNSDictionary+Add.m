@@ -9,6 +9,7 @@
 #import "LFNSDictionary+Add.h"
 #import "LFNSString+Add.h"
 #import "LFCategoryMacro.h"
+#import "LFNSData+Add.h"
 
 
 
@@ -156,6 +157,30 @@
 
 @implementation NSDictionary (LFNSDictionaryAdditions)
 
++ (NSDictionary *)lf_dictionaryWithPlistData:(NSData *)plist {
+    if (!plist) return nil;
+    NSDictionary *dictionary = [NSPropertyListSerialization propertyListWithData:plist options:NSPropertyListImmutable format:NULL error:NULL];
+    if ([dictionary isKindOfClass:[NSDictionary class]]) return dictionary;
+    return nil;
+}
+
++ (NSDictionary *)lf_dictionaryWithPlistString:(NSString *)plist {
+    if (!plist) return nil;
+    NSData *data = [plist dataUsingEncoding:NSUTF8StringEncoding];
+    return [self lf_dictionaryWithPlistData:data];
+}
+
+- (NSData *)lf_plistData {
+    return [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListBinaryFormat_v1_0 options:kNilOptions error:NULL];
+}
+
+- (NSString *)lf_plistString {
+    NSData *xmlData = [NSPropertyListSerialization dataWithPropertyList:self format:NSPropertyListXMLFormat_v1_0 options:kNilOptions error:NULL];
+    if (xmlData) return xmlData.lf_utf8String;
+    return nil;
+}
+
+
 - (NSArray *)lf_allKeysSorted {
     return [[self allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
@@ -216,6 +241,21 @@
 
 
 @implementation NSMutableDictionary (LFNSMutableDictionaryAdditions)
+
++ (NSMutableDictionary *)lf_dictionaryWithPlistData:(NSData *)plist {
+    if (!plist) return nil;
+    NSMutableDictionary *dictionary = [NSPropertyListSerialization propertyListWithData:plist options:NSPropertyListMutableContainersAndLeaves format:NULL error:NULL];
+    if ([dictionary isKindOfClass:[NSMutableDictionary class]]) return dictionary;
+    return nil;
+}
+
++ (NSMutableDictionary *)lf_dictionaryWithPlistString:(NSString *)plist {
+    if (!plist) return nil;
+    NSData *data = [plist dataUsingEncoding:NSUTF8StringEncoding];
+    return [self lf_dictionaryWithPlistData:data];
+}
+
+
 
 - (id)lf_popObjectForKey:(id)aKey {
     if (!aKey) return nil;

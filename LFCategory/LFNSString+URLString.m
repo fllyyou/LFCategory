@@ -26,8 +26,10 @@
     
     NSInteger len = [escapeChars count];
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     NSString *tempStr = [self stringByAddingPercentEscapesUsingEncoding:stringEncoding];
-    
+#pragma clang diagnostic pop
     if (tempStr == nil) {
         return nil;
     }
@@ -93,8 +95,10 @@
                                    range:NSMakeRange(0, [temp length])];
     }
     NSString *outStr = [NSString stringWithString: temp];
-    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     return [outStr stringByReplacingPercentEscapesUsingEncoding:stringEncoding];
+    #pragma clang diagnostic pop
 }
 
 - (NSDictionary*)lf_queryContentsDicUsingEncoding:(NSStringEncoding)encoding {
@@ -107,10 +111,13 @@
         [scanner scanCharactersFromSet:delimiterSet intoString:NULL];
         NSArray* kvPair = [pairString componentsSeparatedByString:@"="];
         if (kvPair.count == 2) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             NSString* key = [[kvPair objectAtIndex:0]
                              stringByReplacingPercentEscapesUsingEncoding:encoding];
             NSString* value = [[kvPair objectAtIndex:1]
                                stringByReplacingPercentEscapesUsingEncoding:encoding];
+#pragma clang diagnostic pop
             [pairs setObject:value forKey:key];
         }
     }

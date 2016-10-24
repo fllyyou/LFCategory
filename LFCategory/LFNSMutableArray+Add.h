@@ -13,6 +13,24 @@
  */
 @interface NSMutableArray (LFNSMutableArrayAdditions)
 
+/**
+ Creates and returns an array from a specified property list data.
+ 
+ @param plist   A property list data whose root object is an array.
+ @return A new array created from the binary plist data, or nil if an error occurs.
+ */
++ (NSMutableArray *)arrayWithPlistData:(NSData *)plist;
+
+/**
+ Creates and returns an array from a specified property list xml string.
+ 
+ @param plist   A property list xml string whose root object is an array.
+ @return A new array created from the plist string, or nil if an error occurs.
+ */
++ (NSMutableArray *)arrayWithPlistString:(NSString *)plist;
+
+
+
 /// 移除第一个对象 (如果Array空，则无效果)
 - (void)lf_removeFirstObject;
 
