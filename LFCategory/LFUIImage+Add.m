@@ -939,4 +939,16 @@ static void _lf_cleanupBuffer(void *userData, void *buf_data) {
 }
 
 
+- (UIImage *)darkenImageAlpha:(CGFloat)alpha {
+    
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+    [self drawInRect:CGRectMake(0, 0, self.size.width, self.size.height)
+           blendMode:kCGBlendModeDarken
+               alpha:alpha];
+    UIImage *highlighted = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return highlighted;
+}
+
+
 @end
