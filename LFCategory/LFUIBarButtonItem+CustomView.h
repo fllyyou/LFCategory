@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, LFCustomItemPosition) {
 /**
  *  没有定义customview情况下调用此方法 否则不能成功回调
  */
-@property (nonatomic, copy) void (^actionBlock)(id);
+@property (nonatomic, copy) void (^actionClickBlock)(id);
 
 
 

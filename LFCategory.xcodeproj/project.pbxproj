@@ -116,6 +116,10 @@
 		09ED7FB31CF29CB800F0E12F /* LFWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED7FB11CF29CB800F0E12F /* LFWeakProxy.m */; };
 		81730DEB1DBF951C00F20B86 /* LFUIBarButtonItem+CustomView.h in Headers */ = {isa = PBXBuildFile; fileRef = 81730DE91DBF951C00F20B86 /* LFUIBarButtonItem+CustomView.h */; };
 		81730DEC1DBF951C00F20B86 /* LFUIBarButtonItem+CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81730DEA1DBF951C00F20B86 /* LFUIBarButtonItem+CustomView.m */; };
+		81730E091DC092B600F20B86 /* LFUIBarButtonItem+Add.h in Headers */ = {isa = PBXBuildFile; fileRef = 81730E051DC092B600F20B86 /* LFUIBarButtonItem+Add.h */; };
+		81730E0A1DC092B600F20B86 /* LFUIBarButtonItem+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 81730E061DC092B600F20B86 /* LFUIBarButtonItem+Add.m */; };
+		81730E0B1DC092B600F20B86 /* LFUIBarButtonItem+Image.h in Headers */ = {isa = PBXBuildFile; fileRef = 81730E071DC092B600F20B86 /* LFUIBarButtonItem+Image.h */; };
+		81730E0C1DC092B600F20B86 /* LFUIBarButtonItem+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 81730E081DC092B600F20B86 /* LFUIBarButtonItem+Image.m */; };
 		CADD1EC91CFED4FF00799DF9 /* LFUIImage+Resource.h in Headers */ = {isa = PBXBuildFile; fileRef = CADD1EC71CFED4FF00799DF9 /* LFUIImage+Resource.h */; };
 		CADD1ECA1CFED4FF00799DF9 /* LFUIImage+Resource.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD1EC81CFED4FF00799DF9 /* LFUIImage+Resource.m */; };
 /* End PBXBuildFile section */
@@ -232,6 +236,10 @@
 		490032313ABB3FACB200A8FD /* Pods-LFCategory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFCategory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LFCategory/Pods-LFCategory.debug.xcconfig"; sourceTree = "<group>"; };
 		81730DE91DBF951C00F20B86 /* LFUIBarButtonItem+CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIBarButtonItem+CustomView.h"; sourceTree = "<group>"; };
 		81730DEA1DBF951C00F20B86 /* LFUIBarButtonItem+CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIBarButtonItem+CustomView.m"; sourceTree = "<group>"; };
+		81730E051DC092B600F20B86 /* LFUIBarButtonItem+Add.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIBarButtonItem+Add.h"; sourceTree = "<group>"; };
+		81730E061DC092B600F20B86 /* LFUIBarButtonItem+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIBarButtonItem+Add.m"; sourceTree = "<group>"; };
+		81730E071DC092B600F20B86 /* LFUIBarButtonItem+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIBarButtonItem+Image.h"; sourceTree = "<group>"; };
+		81730E081DC092B600F20B86 /* LFUIBarButtonItem+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIBarButtonItem+Image.m"; sourceTree = "<group>"; };
 		CADD1EC71CFED4FF00799DF9 /* LFUIImage+Resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LFUIImage+Resource.h"; sourceTree = "<group>"; };
 		CADD1EC81CFED4FF00799DF9 /* LFUIImage+Resource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LFUIImage+Resource.m"; sourceTree = "<group>"; };
 		D8C56980B2A101798E0CA8B5 /* Pods-LFCategory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LFCategory.release.xcconfig"; path = "Pods/Target Support Files/Pods-LFCategory/Pods-LFCategory.release.xcconfig"; sourceTree = "<group>"; };
@@ -343,6 +351,10 @@
 		09ED7E761CED7FDD00F0E12F /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				81730E051DC092B600F20B86 /* LFUIBarButtonItem+Add.h */,
+				81730E061DC092B600F20B86 /* LFUIBarButtonItem+Add.m */,
+				81730E071DC092B600F20B86 /* LFUIBarButtonItem+Image.h */,
+				81730E081DC092B600F20B86 /* LFUIBarButtonItem+Image.m */,
 				81730DE91DBF951C00F20B86 /* LFUIBarButtonItem+CustomView.h */,
 				81730DEA1DBF951C00F20B86 /* LFUIBarButtonItem+CustomView.m */,
 				CADD1EC71CFED4FF00799DF9 /* LFUIImage+Resource.h */,
@@ -468,6 +480,7 @@
 				09ED7E791CED800B00F0E12F /* LFCALayer+Add.h in Headers */,
 				09ED7EB11CED803200F0E12F /* LFUIAlertController+Blocks.h in Headers */,
 				09ED7ECF1CED803200F0E12F /* LFUIImage+Add.h in Headers */,
+				81730E091DC092B600F20B86 /* LFUIBarButtonItem+Add.h in Headers */,
 				09ED7F2B1CED804200F0E12F /* LFNSObject+Model.h in Headers */,
 				09ED7F0F1CED804200F0E12F /* LFNSArray+Add.h in Headers */,
 				09ED7F271CED804200F0E12F /* LFNSObject+AddForKVO.h in Headers */,
@@ -479,6 +492,7 @@
 				09ED7ED71CED803200F0E12F /* LFUITableView+Add.h in Headers */,
 				09ED7F2F1CED804200F0E12F /* LFNSString+URLString.h in Headers */,
 				09ED7EC91CED803200F0E12F /* LFUIImage+Scale.h in Headers */,
+				81730E0B1DC092B600F20B86 /* LFUIBarButtonItem+Image.h in Headers */,
 				09ED7F191CED804200F0E12F /* LFNSDate+Ext.h in Headers */,
 				09ED7F341CED804D00F0E12F /* LFCategoryMacro.h in Headers */,
 				09ED7F0D1CED804200F0E12F /* LFClassInfo.h in Headers */,
@@ -589,6 +603,7 @@
 			files = (
 				CADD1ECA1CFED4FF00799DF9 /* LFUIImage+Resource.m in Sources */,
 				09ED7ED41CED803200F0E12F /* LFUINavigationController+Add.m in Sources */,
+				81730E0C1DC092B600F20B86 /* LFUIBarButtonItem+Image.m in Sources */,
 				09ED7EBE1CED803200F0E12F /* LFUIButton+EnlargeEdge.m in Sources */,
 				09ED7F221CED804200F0E12F /* LFNSNotificationCenter+Add.m in Sources */,
 				09ED7EB61CED803200F0E12F /* LFUIApplication+Add.m in Sources */,
@@ -630,6 +645,7 @@
 				09ED7EE41CED803200F0E12F /* LFUIViewController+DKAnalyses.m in Sources */,
 				09ED7F201CED804200F0E12F /* LFNSKeyedUnarchiver+Add.m in Sources */,
 				09ED7EC61CED803200F0E12F /* LFUIFont+Add.m in Sources */,
+				81730E0A1DC092B600F20B86 /* LFUIBarButtonItem+Add.m in Sources */,
 				09ED7F321CED804200F0E12F /* LFNSString+Add.m in Sources */,
 				09ED7F2C1CED804200F0E12F /* LFNSObject+Model.m in Sources */,
 				09ED7EB21CED803200F0E12F /* LFUIAlertController+Blocks.m in Sources */,

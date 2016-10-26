@@ -15,9 +15,10 @@
 #import "LFNSString+Add.h"
 
 
+
 static const int block_key;
 
-@interface _LFUIBarButtonItemBlockTarget : NSObject
+@interface _LFUIBarButtonItemCustomViewBlockTarget : NSObject
 
 @property (nonatomic, copy) void (^block)(id sender);
 
@@ -26,7 +27,7 @@ static const int block_key;
 
 @end
 
-@implementation _LFUIBarButtonItemBlockTarget
+@implementation _LFUIBarButtonItemCustomViewBlockTarget
 
 - (id)initWithBlock:(void (^)(id sender))block{
     self = [super init];
@@ -50,18 +51,19 @@ static float const customBarButtonHeight = 44.f;
 
 
 
-- (void)setActionBlock:(void (^)(id sender))block {
-    _LFUIBarButtonItemBlockTarget *target = [[_LFUIBarButtonItemBlockTarget alloc] initWithBlock:block];
+- (void)setActionClickBlock:(void (^)(id sender))block {
+    _LFUIBarButtonItemCustomViewBlockTarget *target = [[_LFUIBarButtonItemCustomViewBlockTarget alloc] initWithBlock:block];
     objc_setAssociatedObject(self, &block_key, target, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     [self setTarget:target];
     [self setAction:@selector(invoke:)];
 }
 
-- (void (^)(id)) actionBlock {
-    _LFUIBarButtonItemBlockTarget *target = objc_getAssociatedObject(self, &block_key);
+- (void (^)(id)) actionClickBlock {
+    _LFUIBarButtonItemCustomViewBlockTarget *target = objc_getAssociatedObject(self, &block_key);
     return target.block;
 }
+
 
 
 
