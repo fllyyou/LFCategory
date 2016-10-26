@@ -47,7 +47,7 @@ static float const customBarButtonWidth = 44.f;
 static float const customBarButtonHeight = 44.f;
 
 
-@implementation UIBarButtonItem (LFAdditions)
+@implementation UIBarButtonItem (LFCustomView)
 
 
 

@@ -11,7 +11,7 @@
 /**
  * 自定义item 用于统一定制导航栏左右item
  */
-@interface UIBarButtonItem (LFAdditions)
+@interface UIBarButtonItem (LFCustomView)
 
 
 /**
