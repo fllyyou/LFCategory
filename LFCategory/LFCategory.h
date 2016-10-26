@@ -50,6 +50,8 @@
 #import "LFUIAlertController+Blocks.h"
 #import "LFUIAlertView+Blocks.h"
 #import "LFUIApplication+Add.h"
+#import "LFUIBarButtonItem+Add.h"
+#import "LFUIBarButtonItem+Image.h"
 #import "LFUIBarButtonItem+CustomView.h"
 #import "LFUIBezierPath+Add.h"
 #import "LFUIButton+EnlargeEdge.h"
