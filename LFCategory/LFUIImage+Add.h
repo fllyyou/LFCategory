@@ -267,6 +267,10 @@
                    tintColorPercent:(CGFloat)tintColorPercent
                           blendMode:(CGBlendMode)blendMode;
 
+//变暗一张图片
+- (UIImage *)darkenImageAlpha:(CGFloat)alpha;
+
+
 
 @end
 

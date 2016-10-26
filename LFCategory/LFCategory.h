@@ -52,6 +52,7 @@
 #import "LFUIApplication+Add.h"
 #import "LFUIBarButtonItem+Add.h"
 #import "LFUIBarButtonItem+Image.h"
+#import "LFUIBarButtonItem+CustomView.h"
 #import "LFUIBezierPath+Add.h"
 #import "LFUIButton+EnlargeEdge.h"
 #import "LFUIColor+Add.h"
