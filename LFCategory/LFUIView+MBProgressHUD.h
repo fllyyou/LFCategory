@@ -45,6 +45,13 @@
 - (MBProgressHUD *)lf_showHUDAnimated:(BOOL)animated message:(NSString *)message
                             dalayTime:(NSTimeInterval)time;
 
+/**
+ @abstract  延迟显示动画
+ @param animated 是否支持动画
+ @param delay  延迟显示动画时间
+ */
+- (void)lf_showHUDAnimated:(BOOL)animated afterDelay:(NSTimeInterval)delay;
+
 
 
 /**

@@ -12,6 +12,9 @@
 #import "MBProgressHUD.h"
 #import "LFUIImage+Resource.h"
 #import "LFUIImage+Add.h"
+#import <objc/runtime.h>
+
+static const void *_showHudStatus = &_showHudStatus;
 
 @implementation UIView (LFMBProgressHUDAdditions)
 
@@ -151,6 +154,34 @@
     [hud hide:animated afterDelay:2.0];
 }
 
+- (void)lf_showHUDAnimated:(BOOL)animated afterDelay:(NSTimeInterval)delay{
+    
+    [self setShowHudStatus:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:delay target:self selector:@selector(handleShowTimer:) userInfo:@(animated) repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)handleShowTimer:(NSTimer *)timer{
+    
+    if ([self showHudStatus]) {
+        [self lf_showHUDAnimated:[timer.userInfo boolValue]];
+    }
+    
+}
+
+- (void)setShowHudStatus:(BOOL)status{
+    
+    objc_setAssociatedObject(self, _showHudStatus, @(status), OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (BOOL)showHudStatus{
+    
+    if (objc_getAssociatedObject(self, _showHudStatus)) {
+        return [objc_getAssociatedObject(self, _showHudStatus) boolValue];
+    }
+    return YES;
+}
+
 
 /*!
  @method
@@ -197,6 +228,7 @@
  */
 - (void)lf_removeAllHUDAnimated:(BOOL)animated
 {
+    [self setShowHudStatus:NO];
     [MBProgressHUD hideAllHUDsForView:self animated:animated];
 }
 
