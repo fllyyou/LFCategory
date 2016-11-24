@@ -15,6 +15,28 @@
 #import "LFNSString+Add.h"
 
 
+// 仅供本类内部使用 （解决外部设置enable失效的问题）
+@interface LFCustomBarButtonItem : UIBarButtonItem
+@end
+
+@implementation LFCustomBarButtonItem
+
+
+- (void)setEnabled:(BOOL)enabled {
+    
+    [super setEnabled:enabled];
+    // 有点武断 但适应现阶段需求
+    if (self.customView) {
+        for (UIControl *ctrl in self.customView.subviews) {
+            ctrl.enabled = enabled;
+        }
+    }
+}
+
+@end
+
+
+
 
 static const int block_key;
 
@@ -127,7 +149,7 @@ static float const customBarButtonHeight = 44.f;
     // 控制点击区域在button中（UIBarButtonItem 会默认扩大点击区域）
     UIView *bgView = [[UIView alloc] initWithFrame:customBtn.frame];
     [bgView addSubview:customBtn];
-    return [[UIBarButtonItem alloc] initWithCustomView:bgView];
+    return [[LFCustomBarButtonItem alloc] initWithCustomView:bgView];
     
 }
 
@@ -157,7 +179,7 @@ static float const customBarButtonHeight = 44.f;
     UIView *bgView = [[UIView alloc] initWithFrame:customBtn.frame];
     [bgView addSubview:customBtn];
     
-    return [[UIBarButtonItem alloc] initWithCustomView:bgView];
+    return [[LFCustomBarButtonItem alloc] initWithCustomView:bgView];
     
 }
 
@@ -180,7 +202,6 @@ static float const customBarButtonHeight = 44.f;
     customButton.titleLabel.font = font ? font : [UIFont systemFontOfSize:16.f];
     color = color ? color : LFUIColorWithHexRGB(0xffa000);
     [customButton setTitleColor:color forState:UIControlStateNormal];
-    [customButton setTitleColor:[color colorWithAlphaComponent:alpha] forState:UIControlStateHighlighted];
     if (hColor) {
         [customButton setTitleColor:hColor forState:UIControlStateHighlighted];
     }
