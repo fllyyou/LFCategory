@@ -58,6 +58,7 @@ typedef NS_ENUM(NSUInteger, LFBadgeSizeType) {
  * show badge with showNumberBadgeWithValue style
  */
 - (void)lf_showNumberBadge:(NSInteger)value;
+- (void)lf_showNumberBadge:(NSInteger)value maxLimit:(NSInteger)limit;
 - (void)lf_showNumberBadge:(NSInteger)value sizeType:(LFBadgeSizeType)sizeType;
 - (void)lf_showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style;
 - (void)lf_showNumberBadge:(NSInteger)value style:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType;

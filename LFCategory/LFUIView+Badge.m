@@ -53,7 +53,7 @@ static char badgeShowallNumbersKey;
 }
 
 - (void)lf_showRedDotBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType{
-    [self configBadge:LFBadgeTypeRedDot style:style sizeType:sizeType value:0];
+    [self configBadge:LFBadgeTypeRedDot style:style sizeType:sizeType value:0 maxLimit:-1];
 }
 
 /* --showNewBadge -- */
@@ -70,12 +70,21 @@ static char badgeShowallNumbersKey;
 }
 
 - (void)lf_showNewBadgeByStyle:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType{
-    [self configBadge:LFBadgeTypeNew style:style sizeType:sizeType value:0];
+    [self configBadge:LFBadgeTypeNew style:style sizeType:sizeType value:0 maxLimit:-1];
 }
 
 /* --showNumberBadge -- */
 - (void)lf_showNumberBadge:(NSInteger)value{
     [self lf_showNumberBadge:value style:LFBadgeStyleNormal sizeType:LFBadgeSizeTypeNormal];
+}
+
+- (void)lf_showNumberBadge:(NSInteger)value maxLimit:(NSInteger)valueLimit
+{
+    if (!self.lf_showAllNumbers && value <= 0) {
+        [self lf_clearBadge];
+        return;
+    }
+    [self configBadge:LFBadgeTypeNumber style:LFBadgeStyleNormal sizeType:LFBadgeSizeTypeNormal value:value maxLimit:valueLimit];
 }
 
 - (void)lf_showNumberBadge:(NSInteger)value sizeType:(LFBadgeSizeType)sizeType{
@@ -91,7 +100,7 @@ static char badgeShowallNumbersKey;
         [self lf_clearBadge];
         return;
     }
-    [self configBadge:LFBadgeTypeNumber style:style sizeType:sizeType value:value];
+    [self configBadge:LFBadgeTypeNumber style:style sizeType:sizeType value:value maxLimit:-1];
 }
 
 
@@ -110,7 +119,7 @@ static char badgeShowallNumbersKey;
     }
 }
 
-- (void)configBadge:(LFBadgeType)type style:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType value:(NSInteger)value{
+- (void)configBadge:(LFBadgeType)type style:(LFBadgeStyle)style sizeType:(LFBadgeSizeType)sizeType value:(NSInteger)value maxLimit:(NSInteger)valueLimit{
     [self badgeInit];
     
     self.lf_badge.tag = type;
@@ -125,8 +134,13 @@ static char badgeShowallNumbersKey;
             break;
         case LFBadgeTypeNumber:
         {
+            if (valueLimit <= 0){
+                valueLimit = 100;
+            }
+            
             if (value >=100) {
-                self.lf_badge.text = self.lf_showAllNumbers ? @(value).description : @"99+";
+                NSString *limtStr = [NSString stringWithFormat:@"%d+", valueLimit - 1];
+                self.lf_badge.text = self.lf_showAllNumbers ? @(value).description : limtStr;
             } else {
                 self.lf_badge.text = [NSString stringWithFormat:@"%@", @(value)];
             }
